@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    字典是dict(zip('abcde', range(1,6)))
+    <ul>
+    {% for k,v in dct.items %}
+        <li>{{ forloop.counter }}</li>
+    {% endfor %}
+    </ul>
+    <hr />
+    <ul>
+    {% for k,v in dct.items %}
+        <li>{{ forloop.counter0 }}</li>
+    {% endfor %}
+    </ul>
+    <hr />
+    <ul>
+    {% for k,v in dct.items %}
+        {{ forloop.first }}
+        {{ forloop.last }}
+        <li>{{ forloop.revcounter0 }} {{ k }} {{ v }}</li>
+    {% endfor %}
+    </ul>
+    <hr />
+    {% for k,v in dct.items %}
+        <li>{{ forloop.revcounter }} {{ k }} {{ v }}</li>
+    {% endfor %}
+
+    {% for k, v in dct.items %}
+        <li style='color: {{ forloop.revcounter0|divisibleby:"2"|yesno:"red,blue"}}'>
+            {{ forloop.revcounter }} {{ k }} {{ v|add:"100" }}
+        </li>
+    {% endfor%}
+</body>
+</html>
